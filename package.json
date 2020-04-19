@@ -1,0 +1,10 @@
+{
+  "name": "kitspace-repo-watcher",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Kaspar Emanuel <kaspar.emanuel@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "superagent": "^5.2.2"
+  }
+}
