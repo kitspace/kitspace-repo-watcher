@@ -21,6 +21,7 @@ const cp = require('child_process');
     );
     const changed = boards.filter((board, i) => {
       remoteVersion = remote[i];
+      console.log('checking', board.repo);
       return remoteVersion !== board.hash;
     });
     if (changed.length > 0) {
@@ -37,10 +38,11 @@ const cp = require('child_process');
           },
         })
         .then(r => console.log(r.body));
-      // wait 30 minutes
-      await promiseTimeout(30 * 60000);
+	.catch(e => console.error(e))
+      console.log('waiting 7 minutes...');
+      await promiseTimeout(8 * 60000);
     }
-    // wait 1 minute
+    console.log('waiting 1 minute...');
     await promiseTimeout(60000);
   }
 })().catch(e => {
