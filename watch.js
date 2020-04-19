@@ -5,7 +5,7 @@ const cp = require('child_process');
   console.log('watching...')
   while (1) {
     const deployedReq = await superagent.get(
-      'http://cached-builds.preview.kitspace.org/registry.json',
+      'http://kitspace.org/registry.json',
     );
     const registryReq = await superagent.get(
       'https://raw.githubusercontent.com/kitspace/kitspace/master/registry.json',
@@ -34,13 +34,13 @@ const cp = require('child_process');
         })
         .send({
           request: {
-            branch: 'cached-builds',
+            branch: 'master',
           },
         })
         .then(r => console.log(r.body));
 	.catch(e => console.error(e))
       console.log('waiting 7 minutes...');
-      await promiseTimeout(8 * 60000);
+      await promiseTimeout(7 * 60000);
     }
     console.log('waiting 1 minute...');
     await promiseTimeout(60000);
